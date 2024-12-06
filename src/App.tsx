@@ -4,6 +4,7 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 import { Divider } from "primereact/divider";
 import { COMAPNY } from "./config";
+import tpmlogo from "./assets/tpmlogo.png";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -14,8 +15,8 @@ function App() {
       <div className="flex flex-column gap-2  mx-auto justify-content-center align-items-center mt-5">
         <div className="bg-gray-50 p-3 md:p-6 shadow-3 w-full sm:w-10 md:w-8 lg:w-6">
           <div>
-            <h2 className="text-primary-500 text-3xl">T.P. MANAGER</h2>
-            <p className="text-base  "> {COMAPNY}</p>
+            <img src={tpmlogo} className="w-3" />
+            <h2 className="text-primary-500 text-sm">{COMAPNY}</h2>
           </div>
           <Divider />
 
