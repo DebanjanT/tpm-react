@@ -17,15 +17,15 @@ function App() {
   return (
     <>
       <div className="flex flex-column gap-2  mx-auto justify-content-center align-items-end lg:pr-3 background-wallpaper-local">
-        <div className="bg-gray-100 p-3 md:p-6 shadow-3 w-full sm:w-10 md:w-8 lg:w-6">
+        <div className="bg-gray-100 p-3 md:p-6 shadow-3 w-full sm:w-10 md:w-8 lg:w-6 overflow-scroll">
           <div>
             <img src={tpmlogo} className="w-3" />
 
             <Divider />
             <div className="flex justify-content-between align-items-center">
-              <div className="flex justify-content-start align-items-center gap-2 text-md text-gray-500">
+              <div className="flex justify-content-start align-items-center gap-2 text-md text-gray-600">
                 {" "}
-                <span>Last Logged In: </span>
+                <span className="drop-shadow-text">Last Logged In: </span>
                 <Chip
                   className="pl-0 pr-3"
                   template={() => (
@@ -88,17 +88,21 @@ function App() {
             className="p-button-raised p-button w-full my-3 py-3"
           ></Button>
 
-          <p>
+          <p className="text-center">
             <small>
               <a
                 href="  
             https://www.primefaces.org/layouts/sapphire-react"
-                className="text-primary-500 hover:text-primary-800"
+                className="text-primary-500 hover:text-primary-800 no-underline"
               >
                 Transit Pass Manager
               </a>{" "}
-              - A Dibyendu Tewary Project
+              - A Dibyendu Tewary Open Source Project{" "}
             </small>
+          </p>
+          <p className="digital-india-text text-center font-semibold">
+            <i className="pi pi-heart"></i> A little contribution to
+            <span className=""> Digital India !</span>
           </p>
         </div>
       </div>

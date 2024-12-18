@@ -8,6 +8,17 @@ body {
   box-sizing: border-box;
 }
 
+.digital-india-text {
+  background: linear-gradient(
+    90deg,
+    #ff671f 30%,
+    /* Saffron */ #046a38 60%,
+    /* Green */ #06038d 100% /* Navy Blue */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .background-wallpaper-local {
   background-image: url("./assets/digitalindia.jpg");
   background-size: cover;
@@ -18,4 +29,8 @@ body {
   width: 100%;
   position: fixed;
   z-index: -1;
+}
+
+.drop-shadow-text {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
