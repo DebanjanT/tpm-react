@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
@@ -9,10 +9,55 @@ import { Chip } from "primereact/chip";
 import { Tooltip } from "primereact/tooltip";
 import { IconField } from "primereact/iconfield";
 import { InputIcon } from "primereact/inputicon";
+import Client from "./utils/http";
+import { Toast } from "primereact/toast";
 
 function App() {
+  const toast = useRef<Toast>(null);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const http = new Client({
+    baseUrl: "http://localhost:6851",
+  });
+
+  const login = async () => {
+    console.log(username, password);
+    if (!username || !password) {
+      toast.current?.show({
+        severity: "error",
+        summary: "Incomplete Data",
+        detail: "Please enter username and password",
+        life: 3000,
+      });
+
+      return;
+    }
+    try {
+      setLoading(true);
+      const response = await http.login(username, password);
+
+      toast.current?.show({
+        severity: "success",
+        summary: "Login Success",
+        detail: "Welcome to Transit Pass Manager",
+        life: 3000,
+      });
+      console.log(response);
+      setLoading(false);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      console.log(error);
+      toast.current?.show({
+        severity: "error",
+        summary: "Login Failed",
+        detail: error.message,
+        life: 3000,
+      });
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -85,6 +130,9 @@ function App() {
 
           <Button
             label="Login"
+            loading={loading}
+            disabled={loading}
+            onClick={login}
             className="p-button-raised p-button w-full my-3 py-3"
           ></Button>
 
@@ -106,6 +154,8 @@ function App() {
           </p>
         </div>
       </div>
+
+      <Toast ref={toast} />
     </>
   );
 }
