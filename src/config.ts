@@ -1,1 +1,1 @@
-export const COMAPNY = "Ma Damdama Timber Traders";
+export const COMAPNY = "DIBYENDU TEWARY";
