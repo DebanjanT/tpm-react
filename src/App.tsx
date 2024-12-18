@@ -62,7 +62,7 @@ function App() {
   return (
     <>
       <div className="flex flex-column gap-2  mx-auto justify-content-center align-items-end lg:pr-3 background-wallpaper-local">
-        <div className="light-grad-bg p-3 md:p-6 shadow-3 w-full sm:w-10 md:w-8 lg:w-6 overflow-scroll md:border-round-2xl">
+        <div className="light-grad-bg p-3 md:p-6 shadow-3 w-full sm:w-10 md:w-8 lg:w-6 overflow-scroll hide-scrollbar md:border-round-2xl">
           <div>
             <img src={tpmlogo} className="w-3" />
 
