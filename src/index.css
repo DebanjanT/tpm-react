@@ -31,6 +31,10 @@ body {
   z-index: -1;
 }
 
+.bg-dgi {
+  background-image: url("./assets/digitalindia.jpg");
+}
+
 .drop-shadow-text {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
